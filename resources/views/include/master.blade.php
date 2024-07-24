@@ -8,7 +8,9 @@
     <title>Laravel-- Contact Manager</title>
 
     <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('/public') }}/laravel.png" />
+  
+    <link rel="icon" type="image/x-icon" href="{{ asset('laravel.png') }}">
+
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
