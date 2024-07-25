@@ -5,7 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
-
+use App\Services\ContactService;
+use App\Repositories\ContactRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(ContactService::class, function ($app) {
+            return new ContactService($app->make(ContactRepository::class));
+        });
     }
 
     /**

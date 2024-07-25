@@ -14,8 +14,8 @@
                 </div>
             @endif
             @if (session('Exist'))
-                <div class="col-lg-4 text-center" style="padding: 20px;border-radius:10px;background-color:#e0d227;">
-                    <span class="text-center" style="font-size: 17px;color:#000;">{{ session('Exist') }}</b>
+                <div class="col-lg-4 text-center" style="padding: 20px;border-radius:10px;background-color:#f58747;">
+                    <span class="text-center" style="font-size: 17px;color:#fff;">{{ session('Exist') }}</b>
                 </div>
             @endif
 
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="name">Contact Name:</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter Contact Name"
-                            name="name" required="required" oninput="validateContactName()">
+                            name="name" required="required" oninput="validateContactName()" value="{{ old('name')}}">
                         @error('name')
                             <p class="error-message"> {{ $errors->first('name') }}</p>
                         @enderror
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
                         <input type="text" class="form-control" id="phone" name="phone"
-                            placeholder="Enter Contact Phone" required="required" oninput="validatePhoneNumber(this)">
+                            placeholder="Enter Contact Phone" required="required" oninput="validatePhoneNumber(this)" value="{{ old('phone')}}">
                         @error('phone')
                             <p class="error-message"> {{ $errors->first('phone') }}</p>
                         @enderror
@@ -46,7 +46,6 @@
                 </form>
             </div>
         </div>
-
 
         @if ($data['contact_data']->total() != 0)
             <hr>
